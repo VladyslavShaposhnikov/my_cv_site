@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'mc_tasklist/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="{% url 'mc_tasklist:about' %}">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="text">About</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{% url 'mc_tasklist:skills' %}">
+                    <span class="icon">
+                        <ion-icon name="school-outline"></ion-icon>
+                    </span>
+                    <span class="text">Skills</span>
+                </a>
+            </li><li class="list">
+                <a href="{% url 'mc_tasklist:contact' %}">
+                    <span class="icon">
+                        <ion-icon name="call-outline"></ion-icon>
+                    </span>
+                    <span class="text">Contact</span>
+                </a>
+            </li><li class="list">
+                <a href="{% url 'mc_tasklist:feedback' %}">
+                    <span class="icon">
+                        <ion-icon name="reader-outline"></ion-icon>
+                    </span>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+            <div class="indicator">
+
+            </div>
+        </ul>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    {% block content %}
+
+    {% endblock %}
+    <div class="bottom_social_media">
+    <div class="social github">
+        <a href="https://github.com/VladyslavShaposhnikov" target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </div>
+    <div class="social instagram">
+        <a href="https://www.instagram.com/shapik3/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+    </div>
+    <div class="social facebook">
+        <a href="https://www.facebook.com/profile.php?id=100012379743284" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>    
+    </div>
+    <div class="social skype">
+        <a href="https://join.skype.com/invite/JWbmfqhp21zJ" target="_blank"><i class="fa fa-skype fa-2x"></i></a>
+    </div>
+    <div class="social linkedin">
+        <a href="https://www.linkedin.com/in/vladyslav-shaposhnikov-6405a9206/" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a>
+    </div>
+    <div class="social telegram">
+        <a href="https://t.me/shapik3" target="_blank"><i class="fa fa-paper-plane fa-2x"></i></a>
+    </div>
+</div>
+</body>
+</html>
+
+

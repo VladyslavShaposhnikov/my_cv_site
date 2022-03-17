@@ -1,0 +1,15 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}Confirm deleting post{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>Post text</h3>
+    <h4>{{ feedback.message }}</h4>
+    <h1>
+        Please don't do that if you are not an {{ feedback.name }} (author of this post).
+        <p>Do you still want to delete this post???</p>
+        <p><a class="button_yes" href="{% url 'mc_tasklist:delete_feedback' feedback.id %}">Yes</a>
+            <a class="button_no" href="{% url 'mc_tasklist:feedback_detail' feedback.id %}">No</a></p>
+    </h1>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}Detail-{{ feedback_post.name }}{% endblock %}
+{% block content %}
+<div class="container">
+    <br>
+    <h3>From: <strong>{{ feedback_post.name }}</strong></h3>
+    <h3>Tip for me: <strong>{{ feedback_post.message }}</strong></h3>
+    <h3>E-mail: <strong>{{ feedback_post.email }}</strong></h3>
+    <h3>Issue title: <strong>{{ feedback_post.subject }}</strong></h3>
+    <small>{{ feedback_post.date_and_time }}</small>
+    <hr>
+    <a class="button" href="{% url 'mc_tasklist:edit_feedback_detail' feedback_post.id %}">
+        <ion-icon name="build-outline"></ion-icon>Edit post</a>
+    <a class="button_yes" href="{% url 'mc_tasklist:confirm_delete_feedback' feedback_post.id %}">
+        <ion-icon name="skull-outline"></ion-icon>Delete post</a>
+</div>
+{% endblock %}

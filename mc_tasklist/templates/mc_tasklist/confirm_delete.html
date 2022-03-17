@@ -1,0 +1,12 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}Confirm deleting issue title{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>
+        Be carefull. If another posts have the same issue title like that you rename all of this posts to "None".
+        <p>Do you still want to delete <strong>{{ subject }}</strong>???</p>
+        <p><a class="button_yes" href="{% url 'mc_tasklist:delete_subject' subject.id %}">Yes</a> <a class="button_no" href="{% url 'mc_tasklist:list_subject' %}">No</a></p>
+    </h1>
+</div>
+{% endblock %}

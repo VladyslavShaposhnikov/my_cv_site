@@ -1,0 +1,32 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}aboutVlad{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Short story about me</h1>
+    <p>
+        Hello, my name is Vladyslav Shaposhnikov, I am a junior python developer and It is my portfolio site. 
+        I study programming in free time for an almost 1,5 years. Firstly, I started interesting programming when 
+        I finished university in the faculty of Tourism in Wroclaw Poland. I watched some videos on YouTube about 
+        what you can do with programming and I decided to try it. Later I found some books about programming languages, 
+        tutorials and articles in the internet. In my opinion, I spend a lot of time to get some theoretical knowledge, 
+        I did several projects by following tutorials in internet and also I tried doing my own projects like this one. 
+    </p>
+    <p>
+        I feel that I am ready to get my first job in IT and I promise you that you will not regret hiring me in your company.
+    </p>
+    <h1>Why you should hiring me?</h1>
+    <p>
+        The main reason why you should hiring me to your company is my desire to learn programming. My main goal for now is to get knowledge and skills becouse I have great plans for future. I know that I need to do a lot of work to become a real programmer and I ready for that.
+    </p>
+    <p>
+        If you do not want to hire me for a salary it is not a problem because I am ready to train as much as you need for free.
+    </p>
+        <h1>My location</h1>
+        <p>Currently I live in Kraków (Poland)</p>
+        <p>On map bellow you can see street of my house</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.311467723008!2d19.960981316058508!3d50.02425927941885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4716435382cbd5ad%3A0xa835c4c13571e697!2sMaurycego%20Mochnackiego%2C%20Krak%C3%B3w!5e0!3m2!1sru!2spl!4v1647549320195!5m2!1sru!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <h3>Big request to you</h3>
+    <p>Please leave your feedback about my site <a href="{% url 'mc_tasklist:feedback' %}">here</a></p>
+        </div>
+    {% endblock %}

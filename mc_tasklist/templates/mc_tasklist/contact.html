@@ -1,0 +1,19 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            <h1>{{ message }}</h1>
+        {% endfor %}
+    {% else %}
+    <h1>Fill the form and I will get your message</h1>
+    {% endif %}
+    <form action="#" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="button" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

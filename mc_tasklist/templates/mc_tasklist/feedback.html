@@ -1,0 +1,47 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}Feedback{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Hello feedback</h1>
+    <a href="{% url 'mc_tasklist:add_subject' %}">
+        <span class="icon">
+            <ion-icon name="add-circle-outline"></ion-icon>
+        </span>
+        <span class="text">Add issue title</span>
+    </a>
+    <a href="{% url 'mc_tasklist:list_subject' %}">
+        <span class="icon">
+            <ion-icon name="construct-outline"></ion-icon>
+        </span>
+        <span class="text">Edit/delete issue title</span>
+    </a>
+    <form action="#" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="button" type="submit" value="Submit">
+    </form>
+    {% if feedback_list %}
+    <hr>
+    {% for item in feedback_list %}
+    <br>
+    {% if item.was_published_recently %}
+    <h5 class="new"><ion-icon name="hourglass-outline"></ion-icon>new</h5>
+    {% endif %}
+    <h3>From: <strong>{{ item.name }}</strong></h3>
+    {% if item.message|length >= 200 %}
+        <h3>Tip for me: <strong>{{ item.message|slice:":200" }} ... </strong><small><a class="read_more" href="{% url 'mc_tasklist:feedback_detail' item.id %}">read more</a></small></h3>
+    {% else %}
+        <h3>Tip for me: <strong>{{ item.message }}</strong></h3>
+    {% endif %}
+    {% if item.email %}
+    <h3>E-mail: <strong>{{ item.email }}</strong></h3>
+    {% endif %}
+    <h3>Issue title: <strong>{{ item.subject }}</strong></h3>
+    <small>{% if item.modificated %}<ion-icon name="construct-outline"></ion-icon>modificated - {% endif %}{{ item.date_and_time }}</small>
+    <p><a class="button2" href="{% url 'mc_tasklist:feedback_detail' item.id %}">Details</a></p>
+    <hr>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

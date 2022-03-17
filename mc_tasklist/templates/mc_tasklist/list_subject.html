@@ -1,0 +1,14 @@
+{% extends "mc_tasklist/base.html" %}
+
+{% block title %}Subjects list{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>Choose which title you want to update</h3>
+    <br>
+    {% for item in subjects %}
+        <h3>{{ item }}</h3>
+        <p><a href="{% url 'mc_tasklist:edit_subject' item.id %}">Edit <strong>{{ item }}</strong></a> | <a href="{% url 'mc_tasklist:confirm_delete_subject' item.id %}">Delete <strong>{{ item }}</strong></a></p>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}
