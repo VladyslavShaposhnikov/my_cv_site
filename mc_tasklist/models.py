@@ -1,4 +1,5 @@
 from datetime import timedelta
+from email import message
 from django.utils import timezone
 from django.db import models
 
@@ -21,3 +22,12 @@ class Feedback(models.Model):
 
     def __str__(self):
         return self.name
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=200, blank=True)
+    subject = models.CharField(max_length=200, blank=True)
+    message = models.TextField()
+
+    def __str__(self):
+            return '{} - {}'.format(self.name, self.pk)

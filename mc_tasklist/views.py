@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from .forms import ContactForm, FeedbackForm, AddSubjectForm, EditSubjectForm
-from .models import Feedback, Subject
+from .models import Feedback, Subject, Contact
 from django.core.mail import send_mail
 from django.contrib import messages
 
@@ -25,9 +25,11 @@ def contact(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             email = form.cleaned_data['email']
-            final_message = 'Company: {}\nE-mail: {}\n'.format(name, email) + message
-            my_mail = 'shapik2404@gmail.com'
-            send_mail(subject=subject, message=final_message, from_email=my_mail, recipient_list=[my_mail])
+            #final_message = 'Company: {}\nE-mail: {}\n'.format(name, email) + message
+            #my_mail = 'shapik2404@gmail.com'
+            #send_mail(subject=subject, message=final_message, from_email=my_mail, recipient_list=[my_mail])
+            contact_post = Contact.objects.create(name=name, subject=subject, email=email, message=message)
+            contact_post.save()
             messages.add_message(request, messages.SUCCESS, 'Thank you for your message :)')
             return HttpResponseRedirect(reverse('mc_tasklist:contact'))
     else:
